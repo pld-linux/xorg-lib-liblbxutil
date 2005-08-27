@@ -1,4 +1,4 @@
-# $Rev: 3331 $, $Date: 2005-08-27 17:38:48 $
+# $Rev: 3331 $, $Date: 2005-08-27 17:42:48 $
 #
 Summary:	lbxutil library
 Summary(pl):	Biblioteka lbxutil
@@ -14,7 +14,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	zlib-devel
-BuildRequires:	pkg-config
+BuildRequires:	pkgconfig >= 0.19
 BuildRequires:	xorg-util-util-macros
 BuildRequires:	xorg-proto-xextproto-devel
 BuildRoot:	%{tmpdir}/liblbxutil-%{version}-root-%(id -u -n)
