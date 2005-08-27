@@ -1,4 +1,4 @@
-# $Rev: 3331 $, $Date: 2005-08-15 12:17:57 $
+# $Rev: 3331 $, $Date: 2005-08-27 17:38:48 $
 #
 Summary:	lbxutil library
 Summary(pl):	Biblioteka lbxutil
@@ -13,7 +13,7 @@ URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	libz-devel
+BuildRequires:	zlib-devel
 BuildRequires:	pkg-config
 BuildRequires:	xorg-util-util-macros
 BuildRequires:	xorg-proto-xextproto-devel
@@ -33,7 +33,7 @@ Summary:	Header files liblbxutil development
 Summary(pl):	Pliki nag³ówkowe do biblioteki liblbxutil
 Group:		X11/Development/Libraries
 Requires:	xorg-lib-liblbxutil = %{version}-%{release}
-Requires:	libz-devel
+Requires:	zlib-devel
 Requires:	xorg-proto-xextproto-devel
 
 %description devel
