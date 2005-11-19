@@ -1,12 +1,12 @@
 Summary:	lbxutil library
 Summary(pl):	Biblioteka lbxutil
 Name:		xorg-lib-liblbxutil
-Version:	0.99.1
+Version:	0.99.2
 Release:	0.1
 License:	MIT
 Group:		X11/Libraries
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC1/lib/liblbxutil-%{version}.tar.bz2
-# Source0-md5:	4adf922ead2e6c9d8c53b77e28fc5f7c
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC2/lib/liblbxutil-%{version}.tar.bz2
+# Source0-md5:	b80830f86254b1f692e2bb6ae7d1b002
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
