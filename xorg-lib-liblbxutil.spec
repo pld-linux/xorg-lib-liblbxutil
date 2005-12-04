@@ -24,8 +24,8 @@ lbxutil library.
 Biblioteka lbxutil.
 
 %package devel
-Summary:	Header files liblbxutil development
-Summary(pl):	Pliki nag³ówkowe do biblioteki liblbxutil
+Summary:	Header files for liblbxutil library
+Summary(pl):	Pliki nag³ówkowe biblioteki liblbxutil
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-proto-xextproto-devel
@@ -35,7 +35,7 @@ Requires:	zlib-devel
 lbxutil library.
 
 This package contains the header files needed to develop programs that
-use these liblbxutil.
+use liblbxutil.
 
 %description devel -l pl
 Biblioteka lbxutil.
