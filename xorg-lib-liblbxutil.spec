@@ -2,7 +2,7 @@ Summary:	lbxutil library
 Summary(pl):	Biblioteka lbxutil
 Name:		xorg-lib-liblbxutil
 Version:	1.0.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/liblbxutil-%{version}.tar.bz2
