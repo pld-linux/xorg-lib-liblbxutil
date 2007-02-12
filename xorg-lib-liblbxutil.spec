@@ -1,5 +1,5 @@
 Summary:	lbxutil library
-Summary(pl.UTF-8):   Biblioteka lbxutil
+Summary(pl.UTF-8):	Biblioteka lbxutil
 Name:		xorg-lib-liblbxutil
 Version:	1.0.1
 Release:	3
@@ -25,7 +25,7 @@ Biblioteka lbxutil.
 
 %package devel
 Summary:	Header files for liblbxutil library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki liblbxutil
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki liblbxutil
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-proto-xextproto-devel
@@ -45,7 +45,7 @@ używających biblioteki liblbxutil.
 
 %package static
 Summary:	Static liblbxutil library
-Summary(pl.UTF-8):   Biblioteka statyczna liblbxutil
+Summary(pl.UTF-8):	Biblioteka statyczna liblbxutil
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
