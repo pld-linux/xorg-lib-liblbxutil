@@ -1,5 +1,5 @@
 Summary:	lbxutil library
-Summary(pl):	Biblioteka lbxutil
+Summary(pl.UTF-8):   Biblioteka lbxutil
 Name:		xorg-lib-liblbxutil
 Version:	1.0.1
 Release:	3
@@ -20,12 +20,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 lbxutil library.
 
-%description -l pl
+%description -l pl.UTF-8
 Biblioteka lbxutil.
 
 %package devel
 Summary:	Header files for liblbxutil library
-Summary(pl):	Pliki nag³ówkowe biblioteki liblbxutil
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki liblbxutil
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-proto-xextproto-devel
@@ -37,15 +37,15 @@ lbxutil library.
 This package contains the header files needed to develop programs that
 use liblbxutil.
 
-%description devel -l pl
+%description devel -l pl.UTF-8
 Biblioteka lbxutil.
 
-Pakiet zawiera pliki nag³ówkowe niezbêdne do kompilowania programów
-u¿ywaj±cych biblioteki liblbxutil.
+Pakiet zawiera pliki nagÅ‚Ã³wkowe niezbÄ™dne do kompilowania programÃ³w
+uÅ¼ywajÄ…cych biblioteki liblbxutil.
 
 %package static
 Summary:	Static liblbxutil library
-Summary(pl):	Biblioteka statyczna liblbxutil
+Summary(pl.UTF-8):   Biblioteka statyczna liblbxutil
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -54,10 +54,10 @@ lbxutil library.
 
 This package contains the static liblbxutil library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka lbxutil.
 
-Pakiet zawiera statyczna bibliotekê liblbxutil.
+Pakiet zawiera statyczna bibliotekÄ™ liblbxutil.
 
 %prep
 %setup -q -n liblbxutil-%{version}
