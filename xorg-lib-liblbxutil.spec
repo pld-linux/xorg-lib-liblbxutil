@@ -1,44 +1,48 @@
-Summary:	lbxutil library
-Summary(pl.UTF-8):	Biblioteka lbxutil
+Summary:	lbxutil library - Low Bandwidth X extension (LBX) utility routines
+Summary(pl.UTF-8):	Biblioteka lbxutil z funkcjami rozszerzenia LBX (Low Bandwidth X)
 Name:		xorg-lib-liblbxutil
-Version:	1.0.1
-Release:	4
+Version:	1.1.0
+Release:	1
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/liblbxutil-%{version}.tar.bz2
-# Source0-md5:	b73cbd5bc3cd268722a624a5f1318fde
+# Source0-md5:	273329a78c2e9ea189ac416c7fde94a1
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
-BuildRequires:	xorg-proto-xextproto-devel
-BuildRequires:	xorg-util-util-macros
+BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
+BuildRequires:	xorg-util-util-macros >= 1.3
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-lbxutil library.
+lbxutil library contains Low Bandwidth X extension (LBX) utility
+routines.
 
 %description -l pl.UTF-8
-Biblioteka lbxutil.
+Biblioteka lbxutil zawiera funkcje narzędziowe rozszerzenia LBX (Low
+Bandwidth X - X o niskim wykorzystaniu pasma).
 
 %package devel
 Summary:	Header files for liblbxutil library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki liblbxutil
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	xorg-proto-xextproto-devel
+Requires:	xorg-proto-xextproto-devel >= 7.0.99.1
 Requires:	zlib-devel
 
 %description devel
-lbxutil library.
+lbxutil library contains Low Bandwidth X extension (LBX) utility
+routines.
 
 This package contains the header files needed to develop programs that
 use liblbxutil.
 
 %description devel -l pl.UTF-8
-Biblioteka lbxutil.
+Biblioteka lbxutil zawiera funkcje narzędziowe rozszerzenia LBX (Low
+Bandwidth X - X o niskim wykorzystaniu pasma).
 
 Pakiet zawiera pliki nagłówkowe niezbędne do kompilowania programów
 używających biblioteki liblbxutil.
@@ -50,13 +54,9 @@ Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-lbxutil library.
-
 This package contains the static liblbxutil library.
 
 %description static -l pl.UTF-8
-Biblioteka lbxutil.
-
 Pakiet zawiera statyczna bibliotekę liblbxutil.
 
 %prep
@@ -87,13 +87,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog
+%doc AUTHORS COPYING ChangeLog README
 %attr(755,root,root) %{_libdir}/liblbxutil.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/liblbxutil.so.1
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/liblbxutil.so
 %{_libdir}/liblbxutil.la
+%{_includedir}/X11/extensions/lbx*.h
 %{_pkgconfigdir}/lbxutil.pc
 
 %files static
