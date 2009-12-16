@@ -32,6 +32,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-proto-xextproto-devel >= 7.0.99.1
 Requires:	zlib-devel
+Conflicts:	xorg-lib-libXext-devel < 1.1.1-3
 
 %description devel
 lbxutil library contains Low Bandwidth X extension (LBX) utility
