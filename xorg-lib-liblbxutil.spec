@@ -7,6 +7,8 @@ License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/liblbxutil-%{version}.tar.bz2
 # Source0-md5:	273329a78c2e9ea189ac416c7fde94a1
+Patch0:		%{name}-am.patch
+Patch1:		%{name}-xorg.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -62,6 +64,8 @@ Pakiet zawiera statyczna bibliotekę liblbxutil.
 
 %prep
 %setup -q -n liblbxutil-%{version}
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}

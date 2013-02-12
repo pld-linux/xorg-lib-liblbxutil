@@ -1,0 +1,122 @@
+--- liblbxutil-1.1.0/src/delta/lbxdelta.c.orig	2009-12-04 23:42:12.000000000 +0100
++++ liblbxutil-1.1.0/src/delta/lbxdelta.c	2013-02-12 17:49:36.069546753 +0100
+@@ -33,6 +33,7 @@
+ #include <X11/extensions/lbxdeltastr.h>
+ 
+ #include <stddef.h>
++#include <stdlib.h>
+ #include <string.h>
+ 
+ #ifdef LBXREQSTATS
+@@ -44,17 +45,6 @@ extern struct ReqStats LbxRequestStats[L
+ #define LBX_CODE 136 /* XXX - this should not be hardcoded - on todo list */
+ #endif
+ 
+-/* Copied from xc/programs/Xserver/include/xorg/os.h */
+-#ifndef _HAVE_XALLOC_DECLS
+-#define _HAVE_XALLOC_DECLS
+-#include <X11/Xdefs.h>
+-
+-extern pointer Xalloc(unsigned long /*amount*/);
+-extern pointer Xcalloc(unsigned long /*amount*/);
+-extern pointer Xrealloc(pointer /*ptr*/, unsigned long /*amount*/);
+-extern void Xfree(pointer /*ptr*/);
+-#endif
+-
+ /*
+  * Allocate data structures needed for doing Delta compaction
+  */
+@@ -69,7 +59,7 @@ LBXInitDeltaCache(LBXDeltasPtr	pcache,
+     if ((pcache->nDeltas = nDeltas)) {
+ 	pcache->maxDeltasize = maxDeltasize;
+ 	if ((pcache->deltas = (LBXDeltaElemPtr)
+-	    Xalloc(pcache->nDeltas * sizeof(LBXDeltaElemRec) +
++	    malloc(pcache->nDeltas * sizeof(LBXDeltaElemRec) +
+ 		pcache->nDeltas * pcache->maxDeltasize)) == NULL) {
+ 	    return -1;
+ 	}
+@@ -95,7 +85,7 @@ void
+ LBXFreeDeltaCache(LBXDeltasPtr pcache)
+ {
+     if (pcache->nDeltas && pcache->deltas)
+-	Xfree(pcache->deltas);
++	free(pcache->deltas);
+ }
+ 
+ static int 
+--- liblbxutil-1.1.0/src/lbx_zlib/lbx_zlib.h.orig	2009-11-03 06:52:21.000000000 +0100
++++ liblbxutil-1.1.0/src/lbx_zlib/lbx_zlib.h	2013-02-12 17:50:13.056211866 +0100
+@@ -124,17 +124,6 @@ extern void CommitOutBuf ( ZlibBufferPtr
+ extern int FlushOutBuf ( int fd, ZlibBufferPtr outbuf );
+ extern int FlushIovBuf ( int fd, struct iovec *iovbuf );
+ 
+-/* Copied from xc/programs/Xserver/include/xorg/os.h */
+-#ifndef _HAVE_XALLOC_DECLS
+-#define _HAVE_XALLOC_DECLS
+-#include <X11/Xdefs.h>
+-
+-extern pointer Xalloc(unsigned long /*amount*/);
+-extern pointer Xcalloc(unsigned long /*amount*/);
+-extern pointer Xrealloc(pointer /*ptr*/, unsigned long /*amount*/);
+-extern void Xfree(pointer /*ptr*/);
+-#endif
+-
+ /* lbx_zlib.c */
+ unsigned long stream_out_compressed;
+ unsigned long stream_out_uncompressed;
+--- liblbxutil-1.1.0/src/lbx_zlib/lbx_zlib.c.orig	2009-11-03 06:55:28.000000000 +0100
++++ liblbxutil-1.1.0/src/lbx_zlib/lbx_zlib.c	2013-02-12 17:50:41.532877338 +0100
+@@ -59,6 +59,7 @@ from The Open Group.
+ #include <X11/Xos.h>
+ #include <X11/Xfuncs.h>
+ #include <stdio.h>
++#include <stdlib.h>
+ #include <errno.h>
+ #include <sys/types.h>
+ #if !defined(WIN32) && !defined(Lynx)
+@@ -293,7 +294,7 @@ ZlibInit(int fd,
+     struct ZlibInfo		     *comp;
+     int				     ret1, ret2;
+ 
+-    if ((comp = (struct ZlibInfo *)Xalloc(sizeof(struct ZlibInfo))) == NULL)
++    if ((comp = (struct ZlibInfo *)malloc(sizeof(struct ZlibInfo))) == NULL)
+ 	return NULL;
+ 
+     ret1 = InitZlibBuffer(&comp->inbuf, INBUFFER_SIZE);
+@@ -335,7 +336,7 @@ ZlibFree(struct ZlibInfo *comp)
+     else if (comp->decompress_state.decompress_inited)
+ 	inflateEnd (&(comp->compress_state.stream));
+ 
+-    Xfree(comp);
++    free(comp);
+ }
+ 
+ int
+--- liblbxutil-1.1.0/src/lbx_zlib/lbx_zlib_io.c.orig	2009-11-03 06:39:14.000000000 +0100
++++ liblbxutil-1.1.0/src/lbx_zlib/lbx_zlib_io.c	2013-02-12 17:51:09.729542820 +0100
+@@ -37,6 +37,7 @@
+ #include "lbx_zlib.h"
+ 
+ #include <stddef.h>
++#include <stdlib.h>
+ 
+ 
+ /*
+@@ -72,7 +73,7 @@ writev(int fildes, const struct iovec *i
+ int
+ InitZlibBuffer(ZlibBufferPtr b, int size)
+ {
+-    if ((b->bufbase = (char *)Xalloc(size)) == NULL)
++    if ((b->bufbase = (char *)malloc(size)) == NULL)
+ 	return -1;
+     b->bufend = b->bufbase + size;
+     b->bufptr = b->bufbase;
+@@ -84,7 +85,7 @@ void
+ FreeZlibBuffer(ZlibBufferPtr b)
+ {
+     if (b->bufbase) {
+-	Xfree(b->bufbase);
++	free(b->bufbase);
+ 	b->bufbase = NULL;
+     }
+ }
