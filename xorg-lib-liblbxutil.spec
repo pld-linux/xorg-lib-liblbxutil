@@ -2,7 +2,7 @@ Summary:	lbxutil library - Low Bandwidth X extension (LBX) utility routines
 Summary(pl.UTF-8):	Biblioteka lbxutil z funkcjami rozszerzenia LBX (Low Bandwidth X)
 Name:		xorg-lib-liblbxutil
 Version:	1.1.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/liblbxutil-%{version}.tar.bz2
